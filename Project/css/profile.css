@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0
+}
+.header {
+    height: 101px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
+    border: 1px solid #ececec;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+
+}
+.box-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 101px;
+}
+.logo {
+    display: block;
+    color: #222222;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 27px;
+    text-transform: uppercase;
+    line-height: 28px;
+    font-weight: 300;
+    letter-spacing: 0.68px;
+    text-decoration: none;
+    float: left;
+}
+.box1btn {
+    background-color: rgb(179, 156, 245);
+    border: none;
+    float: right;
+    color: white;
+    display: block;
+    width: 133px;
+    height: 45px;
+    line-height: 45px;
+    margin: 53px auto;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.box1btn:hover {
+    box-shadow: 0 0 10px rgb(178, 177, 250);
+
+}
+.client {
+    height: 272;
+    width: 390;
+    display: block;
+    margin-top: 75px;
+}
+#slick-login {
+    margin: 20px 0 0 0;
+}
+.client input{
+    margin: 20px 0 0 0;
+    padding: 0 10px;
+    outline: 0 !important;
+}
+select {
+    display: block;
+    width: 355px;
+    height: 45px;
+    border-radius: 20px;
+    padding: 0 10px;
+    outline: 0 !important;
+}
+.placeholder{    
+    border: none;
+    border: 2px solid rgb(14, 177, 22);
+    display: block;
+    width: 385px;
+    height: 42px;
+}
+
+.underfooter {
+    display: flex;
+    height: 345px;
+}
+.content{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+.flex-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+h1, h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #222222;
+}
+h3 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    color: #898989;
+    margin-top: 10px;
+    font-weight: inherit;
+}
+.inf {
+    display: block;
+}
+.inf .logo a{
+    float: left;
+    height: 27px;
+    width: 157px;
+}
+.inf p{
+    height: 120px;
+    width: 458px;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: gray;
+    float: left;
+    padding: 20px 0 50px 0;
+    line-height: 1.5;
+}

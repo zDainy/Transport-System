@@ -1,0 +1,79 @@
+CREATE TABLE public.customer
+(
+    id numeric NOT NULL DEFAULT nextval('customer_seq'),
+    login character varying NOT NULL,
+    password character varying NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE public.cust_info
+(
+    id numeric NOT NULL DEFAULT nextval('cust_info_seq'),
+    name character varying,
+    email character varying,
+    phone character varying,
+    delivery_addr character varying,
+    cust_id numeric NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT cust_info_fk FOREIGN KEY (cust_id)
+        REFERENCES public.customer (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE public.service
+(
+    id numeric NOT NULL DEFAULT nextval('service_seq'),
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    price numeric NOT NULL,
+    description character varying COLLATE pg_catalog."default",
+    CONSTRAINT service_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public."order"
+(
+    id numeric NOT NULL DEFAULT nextval('order_seq'),
+    date_created date NOT NULL DEFAULT CURRENT_DATE,
+    customer_id numeric NOT NULL,
+    service_id numeric NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT cust_fk FOREIGN KEY (customer_id)
+        REFERENCES public.customer (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT service_fk FOREIGN KEY (service_id)
+        REFERENCES public.service (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE public.service_category
+(
+    id numeric NOT NULL,
+    name character varying NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE public.service
+    ADD COLUMN category_id numeric NOT NULL;
+ALTER TABLE public.service
+    ADD FOREIGN KEY (category_id)
+    REFERENCES public.service_category (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+CREATE TABLE public.service_order
+(
+    id numeric NOT NULL DEFAULT nextval('service_order_seq'),
+    service_id numeric NOT NULL,
+    order_id numeric NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT srvc_fk FOREIGN KEY (service_id)
+        REFERENCES public.service (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT ord_fk FOREIGN KEY (order_id)
+        REFERENCES public."order" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);

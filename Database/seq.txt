@@ -1,0 +1,21 @@
+CREATE DATABASE "Transport"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+CREATE SEQUENCE public.cust_info_seq
+;
+
+CREATE SEQUENCE public.customer_seq
+;
+
+CREATE SEQUENCE public.order_seq
+;
+
+CREATE SEQUENCE public.service_seq
+;
+
+
+CREATE SEQUENCE public.service_order_seq
+;
